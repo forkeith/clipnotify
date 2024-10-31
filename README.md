@@ -25,3 +25,21 @@ clipnotify.
 
 You can choose a particular selection with `-s`, and loop instead of exiting
 with `-l`. See `clipmenu -h` for more information.
+
+# Building instructions
+
+Building clipnotify from source has a dependency on a file called `X11/extensions/Xfixes.h`.
+If you are on a Linux OS which uses `apt`, you can find which package contains this file using:
+
+```sh
+sudo apt-get install apt-file
+sudo apt-file update
+apt-file search X11/extensions/Xfixes.h
+```
+which (at the time of writing) will return:
+> libxfixes-dev
+
+so to successfully compile clipnotify by running `make` you will need to do this first:
+```sh
+sudo apt-get install libxfixes-dev
+```
